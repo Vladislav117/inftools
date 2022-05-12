@@ -387,6 +387,17 @@ if __name__ == '__main__':
         pass
 
     elif args.action in ("init", "prep", "initialize", "prepare"):
+        if os.path.exists(".inftools"):
+            print()
+            print("YOU CANNOT INITIALIZE INFTOOLS WHILE '.inftools' FILE EXISTS. REMOVE FILE BEFORE INITIALIZATION.")
+            print("BE CAREFUL! INITIALIZATION WILL CLEAR YOUR SOLUTIONS AND ANSWERS!")
+            print()
+
+            exit(0)
+
+        f = open(".inftools", "wt", encoding="utf-8")
+        f.write("To initialize inftools again you should remove this file.")
+
         f = open("answers.txt", "wt", encoding="utf-8")
         f.write("\n".join([f"[] #{i}: " for i in range(1, 26)]) + "\n[] [] # 26: \n[] [] # 27: ")
         f.close()
