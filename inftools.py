@@ -277,3 +277,6 @@ class Timers:
     t2 = ClockTimer(name="Timer 2")
     t3 = ClockTimer(name="Timer 3")
     t4 = ClockTimer(name="Timer 4")
+
+
+Timer.reset()
