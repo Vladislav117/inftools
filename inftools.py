@@ -279,4 +279,100 @@ class Timers:
     t4 = ClockTimer(name="Timer 4")
 
 
+class Input:
+    @classmethod
+    def value(cls, type=str, file=None):
+        if file is None:
+            value = input(">>> ")
+            return type(value)
+        else:
+            f = open(file, encoding="utf-8")
+            value = f.read()
+            f.close()
+            return type(value)
+
+    @classmethod
+    def values(cls, type=str, splitter=" ", file=None):
+        if file is None:
+            values = input(">>> ")
+            values = values.split(splitter)
+            return list(map(type, values))
+        else:
+            f = open(file, encoding="utf-8")
+            values = f.read()
+            values = values.split(splitter)
+            f.close()
+            return list(map(type, values))
+
+    @classmethod
+    def rows_of_values(cls, type=str, splitter=" ", file=None):
+        if file is None:
+            rows = list()
+            row_index = 0
+            while True:
+                values = input(f"(Row {row_index}) >>> ")
+                if values == "":
+                    break
+                values = values.split(splitter)
+                rows.append(list(map(type, values)))
+                row_index += 1
+            return rows
+        else:
+            rows = list()
+            f = open(file, encoding="utf-8")
+            for line in f:
+                values = line.split(splitter)
+                rows.append(list(map(type, values)))
+            f.close()
+            return rows
+
+    @classmethod
+    def integer(cls, file=None):
+        return Input.value(type=int, file=file)
+
+    @classmethod
+    def integers(cls, splitter=" ", file=None):
+        return Input.values(type=int, splitter=splitter, file=file)
+
+    @classmethod
+    def rows_of_integers(cls, splitter=" ", file=None):
+        return Input.rows_of_values(type=int, splitter=splitter, file=file)
+
+    @classmethod
+    def string(cls, file=None):
+        return Input.value(type=str, file=file)
+
+    @classmethod
+    def strings(cls, splitter=" ", file=None):
+        return Input.values(type=str, splitter=splitter, file=file)
+
+    @classmethod
+    def rows_of_strings(cls, splitter=" ", file=None):
+        return Input.rows_of_values(type=str, splitter=splitter, file=file)
+
+    @classmethod
+    def float(cls, file=None):
+        return Input.value(type=float, file=file)
+
+    @classmethod
+    def floats(cls, splitter=" ", file=None):
+        return Input.values(type=float, splitter=splitter, file=file)
+
+    @classmethod
+    def rows_of_floats(cls, splitter=" ", file=None):
+        return Input.rows_of_values(type=float, splitter=splitter, file=file)
+
+    @classmethod
+    def boolean(cls, file=None):
+        return Input.value(type=bool, file=file)
+
+    @classmethod
+    def booleans(cls, splitter=" ", file=None):
+        return Input.values(type=bool, splitter=splitter, file=file)
+
+    @classmethod
+    def rows_of_booleans(cls, splitter=" ", file=None):
+        return Input.rows_of_values(type=bool, splitter=splitter, file=file)
+
+
 Timer.reset()
