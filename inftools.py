@@ -407,16 +407,13 @@ if __name__ == '__main__':
         f = open("notes.txt", "wt", encoding="utf-8")
         f.close()
 
-        if not os.path.exists("solutions"):
-            os.mkdir("solutions")
-
         if not os.path.exists("backups"):
             os.mkdir("backups")
 
         task_numbers = [2, 5, 6, 7, 8, 11, 12, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25]
 
         for i in task_numbers:
-            f = open(f"solutions/z{i}.py", "wt")
+            f = open(f"z{i}.py", "wt")
             f.write(f"#\n# Task {i}\n#\n")
             f.close()
 
@@ -432,12 +429,15 @@ if __name__ == '__main__':
 
             exit(0)
 
-        if os.path.exists("solutions"):
-            shutil.rmtree("solutions")
         if os.path.exists("backups"):
             shutil.rmtree("backups")
         os.remove("answers.txt")
         os.remove("notes.txt")
+
+        task_numbers = [2, 5, 6, 7, 8, 11, 12, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25]
+
+        for i in task_numbers:
+            os.remove(f"z{i}.py")
 
     elif args.action in ("calc", "result", "results", "check", "answers"):
         if os.path.exists("answers.txt"):
