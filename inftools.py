@@ -106,3 +106,133 @@ class Log:
         cls.__show_debug = False
         cls.__show_main = False
         cls.__show_important = False
+
+
+class NumberSystems:
+    @classmethod
+    def from_base_to_base(cls, number, from_base=10, to_base=10):
+        number_10 = int(str(number), from_base)
+
+        if to_base != 10:
+            alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            result = ""
+
+            while number_10 > 0:
+                result = alphabet[number_10 % to_base] + result
+                number_10 //= to_base
+
+            return result
+        else:
+            return number_10
+
+    @classmethod
+    def from_10_to_2(cls, number: int):
+        return cls.from_base_to_base(number, 10, 2)
+
+    @classmethod
+    def from_2_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 2, 10)
+
+    @classmethod
+    def from_10_to_3(cls, number: int):
+        return cls.from_base_to_base(number, 10, 3)
+
+    @classmethod
+    def from_3_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 3, 10)
+
+    @classmethod
+    def from_10_to_4(cls, number: int):
+        return cls.from_base_to_base(number, 10, 4)
+
+    @classmethod
+    def from_4_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 4, 10)
+
+    @classmethod
+    def from_10_to_5(cls, number: int):
+        return cls.from_base_to_base(number, 10, 5)
+
+    @classmethod
+    def from_5_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 5, 10)
+
+    @classmethod
+    def from_10_to_6(cls, number: int):
+        return cls.from_base_to_base(number, 10, 6)
+
+    @classmethod
+    def from_6_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 6, 10)
+
+    @classmethod
+    def from_10_to_7(cls, number: int):
+        return cls.from_base_to_base(number, 10, 7)
+
+    @classmethod
+    def from_7_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 7, 10)
+
+    @classmethod
+    def from_10_to_8(cls, number: int):
+        return cls.from_base_to_base(number, 10, 8)
+
+    @classmethod
+    def from_8_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 8, 10)
+
+    @classmethod
+    def from_10_to_9(cls, number: int):
+        return cls.from_base_to_base(number, 10, 9)
+
+    @classmethod
+    def from_9_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 9, 10)
+
+    @classmethod
+    def from_10_to_11(cls, number: int):
+        return cls.from_base_to_base(number, 10, 11)
+
+    @classmethod
+    def from_11_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 11, 10)
+
+    @classmethod
+    def from_10_to_12(cls, number: int):
+        return cls.from_base_to_base(number, 10, 12)
+
+    @classmethod
+    def from_12_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 12, 10)
+
+    @classmethod
+    def from_10_to_13(cls, number: int):
+        return cls.from_base_to_base(number, 10, 13)
+
+    @classmethod
+    def from_13_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 13, 10)
+
+    @classmethod
+    def from_10_to_14(cls, number: int):
+        return cls.from_base_to_base(number, 10, 14)
+
+    @classmethod
+    def from_14_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 14, 10)
+
+    @classmethod
+    def from_10_to_15(cls, number: int):
+        return cls.from_base_to_base(number, 10, 15)
+
+    @classmethod
+    def from_15_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 15, 10)
+
+    @classmethod
+    def from_10_to_16(cls, number: int):
+        return cls.from_base_to_base(number, 10, 16)
+
+    @classmethod
+    def from_16_to_10(cls, number: str):
+        return cls.from_base_to_base(number, 16, 10)
