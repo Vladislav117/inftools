@@ -248,3 +248,21 @@ class Numbers:
     @classmethod
     def average(cls, *abc):
         return sum(abc) / len(abc)
+
+
+class ClockTimer:
+    def __init__(self, name="Unnamed timer"):
+        self._start = time.time()
+        self._name = name
+
+    def reset(self):
+        self._start = time.time()
+
+    def difference(self):
+        return time.time() - self._start
+
+    def __repr__(self):
+        return f"[{self._name}]: +{self.difference()}s"
+
+    def show(self):
+        print(self.__repr__())
