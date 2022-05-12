@@ -236,3 +236,13 @@ class NumberSystems:
     @classmethod
     def from_16_to_10(cls, number: str):
         return cls.from_base_to_base(number, 16, 10)
+
+
+class Numbers:
+    @classmethod
+    def difference(cls, a, b):
+        return abs(a - b)
+
+    @classmethod
+    def average(cls, *abc):
+        return sum(abc) / len(abc)
