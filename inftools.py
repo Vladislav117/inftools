@@ -1,4 +1,5 @@
 import os
+import shutil
 import time
 import argparse
 
@@ -386,7 +387,7 @@ if __name__ == '__main__':
     if args.action == "none":
         pass
 
-    elif args.action in ("init", "prep", "initialize", "prepare"):
+    elif args.action in ("init", "prep", "initialize", "prepare", "install"):
         if os.path.exists(".inftools"):
             print()
             print("YOU CANNOT INITIALIZE INFTOOLS WHILE '.inftools' FILE EXISTS. REMOVE FILE BEFORE INITIALIZATION.")
@@ -408,13 +409,29 @@ if __name__ == '__main__':
         if not os.path.exists("solutions"):
             os.mkdir("solutions")
 
-        for i in range(1, 28):
+        task_numbers = [2, 5, 6, 7, 8, 11, 12, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25]
+
+        for i in task_numbers:
             f = open(f"solutions/z{i}.py", "wt")
             f.write(f"#\n# Task {i}\n#\n")
             f.close()
 
     elif args.action in ("pattern",):
         pass  # Working with task number(s)
+
+    elif args.action in ("clear", "uninstall"):
+        if os.path.exists(".inftools"):
+            print()
+            print("YOU CANNOT CLEAR ALL FILES WHILE '.inftools' FILE EXISTS. REMOVE FILE BEFORE CLEARING.")
+            print("BE CAREFUL! IT WILL DESTROY ALL GENERATED FILES WITH YOUR SOLUTIONS AND ANSWERS!")
+            print()
+
+            exit(0)
+
+        if os.path.exists("solutions"):
+            shutil.rmtree("solutions")
+        os.remove("answers.txt")
+        os.remove("notes.txt")
 
     elif args.action in ("calc", "result", "results", "check", "answers"):
         if os.path.exists("answers.txt"):
