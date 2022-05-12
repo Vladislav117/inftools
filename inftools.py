@@ -410,6 +410,9 @@ if __name__ == '__main__':
         if not os.path.exists("solutions"):
             os.mkdir("solutions")
 
+        if not os.path.exists("backups"):
+            os.mkdir("backups")
+
         task_numbers = [2, 5, 6, 7, 8, 11, 12, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25]
 
         for i in task_numbers:
@@ -465,9 +468,22 @@ if __name__ == '__main__':
                 file = os.path.join(address, name)
                 if not file.startswith(".\\.git") and not file.startswith(".\\.idea") and \
                     not file.startswith(".\\.gitignore") and not file.startswith(".\\README.md") and \
-                        not file.endswith(".zip"):
+                        not file.endswith(".zip") and not file.startswith(".\\backups"):
                     f.write(file)
         f.close()
+
+    elif args.action in ("backup",):
+        f = zipfile.ZipFile(f"backups/backup-{time.strftime('%d.%m.%Y-%H.%M.%S')}.zip", "w")
+        for address, dirs, files in os.walk('.\\'):
+            for name in files:
+                file = os.path.join(address, name)
+                if not file.startswith(".\\.git") and not file.startswith(".\\.idea") and \
+                        not file.startswith(".\\.gitignore") and not file.startswith(".\\README.md") and \
+                        not file.endswith(".zip") and not file.startswith(".\\backups"):
+                    f.write(file)
+        f.close()
+
+
 
 
 Timer.reset()
