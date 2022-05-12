@@ -23,6 +23,7 @@ class Counter:
         return self._value
 
 
+'''
 class Log:
     __file = f"{__file__.replace('.py', '').replace('.cpy', '')}-log.txt"
 
@@ -106,6 +107,7 @@ class Log:
         cls.__show_debug = False
         cls.__show_main = False
         cls.__show_important = False
+'''
 
 
 class NumberSystems:
