@@ -266,3 +266,6 @@ class ClockTimer:
 
     def show(self):
         print(self.__repr__())
+
+
+Timer = ClockTimer(name="Timer")
