@@ -269,3 +269,11 @@ class ClockTimer:
 
 
 Timer = ClockTimer(name="Timer")
+
+
+class Timers:
+    main = Timer
+    t1 = ClockTimer(name="Timer 1")
+    t2 = ClockTimer(name="Timer 2")
+    t3 = ClockTimer(name="Timer 3")
+    t4 = ClockTimer(name="Timer 4")
