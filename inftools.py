@@ -1,4 +1,6 @@
+import os
 import time
+import argparse
 
 
 class Counter:
@@ -374,5 +376,57 @@ class Input:
     def rows_of_booleans(cls, splitter=" ", file=None):
         return Input.rows_of_values(type=bool, splitter=splitter, file=file)
 
+
+if __name__ == '__main__':
+    arguments_parser = argparse.ArgumentParser("inftools")
+    arguments_parser.add_argument("-a", "--action", help="Action to do", default="none")
+    arguments_parser.add_argument("-t", "--task", help="Task number(s) to work with", default="*")
+    args = arguments_parser.parse_args()
+
+    if args.action == "none":
+        pass
+
+    elif args.action in ("init", "prep", "initialize", "prepare"):
+        f = open("answers.txt", "wt", encoding="utf-8")
+        f.write("\n".join([f"[] #{i}: " for i in range(1, 26)]) + "\n[] [] # 26: \n[] [] # 27: ")
+        f.close()
+
+        f = open("notes.txt", "wt", encoding="utf-8")
+        f.close()
+
+        if not os.path.exists("solutions"):
+            os.mkdir("solutions")
+
+        for i in range(1, 28):
+            f = open(f"solutions/z{i}.py", "wt")
+            f.write(f"#\n# Task {i}\n#\n")
+            f.close()
+
+    elif args.action in ("pattern",):
+        pass  # Working with task number(s)
+
+    elif args.action in ("calc", "result", "results", "check", "answers"):
+        if os.path.exists("answers.txt"):
+            f = open("answers.txt")
+            text = f.read()
+            f.close()
+
+            good = text.count("[+]") + text.count("[v]")
+
+            translation = {0: 0, 1: 7, 2: 14, 3: 20, 4: 27, 5: 34, 6: 40, 7: 43, 8: 46, 9: 48, 10: 51, 11: 54, 12: 56,
+                           13: 59,
+                           14: 62, 15: 64, 16: 67, 17: 70, 18: 72, 19: 75, 20: 78, 21: 80, 22: 83, 23: 85, 24: 88,
+                           25: 90, 26: 93, 27: 95, 28: 98, 29: 100}
+
+            print("-" * 32)
+            print()
+            print("Results: ")
+            print()
+            print(f"Primary score: {good}")
+            print(f"Secondary score: {translation[good]}")
+            print()
+            print(f"=== TOTAL: {translation[good]}/100 ===")
+            print()
+            print("-" * 32)
 
 Timer.reset()
