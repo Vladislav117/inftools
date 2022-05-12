@@ -434,6 +434,8 @@ if __name__ == '__main__':
 
         if os.path.exists("solutions"):
             shutil.rmtree("solutions")
+        if os.path.exists("backups"):
+            shutil.rmtree("backups")
         os.remove("answers.txt")
         os.remove("notes.txt")
 
