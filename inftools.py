@@ -2,6 +2,7 @@ import os
 import shutil
 import time
 import argparse
+import zipfile
 
 
 class Counter:
@@ -456,5 +457,17 @@ if __name__ == '__main__':
             print(f"=== TOTAL: {translation[good]}/100 ===")
             print()
             print("-" * 32)
+
+    elif args.action in ("pack", "zip", "arch", "archive"):
+        f = zipfile.ZipFile(f"archived-{time.strftime('%d.%m.%Y-%H.%M.%S')}.zip", "w")
+        for address, dirs, files in os.walk('.\\'):
+            for name in files:
+                file = os.path.join(address, name)
+                if not file.startswith(".\\.git") and not file.startswith(".\\.idea") and \
+                    not file.startswith(".\\.gitignore") and not file.startswith(".\\README.md") and \
+                        not file.endswith(".zip"):
+                    f.write(file)
+        f.close()
+
 
 Timer.reset()
