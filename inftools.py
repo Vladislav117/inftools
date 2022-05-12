@@ -469,7 +469,7 @@ if __name__ == '__main__':
             for name in files:
                 file = os.path.join(address, name)
                 if not file.startswith(".\\.git") and not file.startswith(".\\.idea") and \
-                    not file.startswith(".\\.gitignore") and not file.startswith(".\\README.md") and \
+                        not file.startswith(".\\.gitignore") and not file.startswith(".\\README.md") and \
                         not file.endswith(".zip") and not file.startswith(".\\backups"):
                     f.write(file)
         f.close()
@@ -484,8 +484,5 @@ if __name__ == '__main__':
                         not file.endswith(".zip") and not file.startswith(".\\backups"):
                     f.write(file)
         f.close()
-
-
-
 
 Timer.reset()
