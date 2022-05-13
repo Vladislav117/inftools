@@ -401,7 +401,7 @@ if __name__ == '__main__':
         f.write("To initialize inftools again you should remove this file.")
 
         f = open("answers.txt", "wt", encoding="utf-8")
-        f.write("\n".join([f"[] #{i}: " for i in range(1, 26)]) + "\n[] [] # 26: \n[] [] # 27: ")
+        f.write("\n".join([f"[] #{i}: " for i in range(1, 26)]) + "\n[] [] #26: \n[] [] #27: ")
         f.close()
 
         f = open("notes.txt", "wt", encoding="utf-8")
