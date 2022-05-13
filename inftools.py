@@ -410,7 +410,7 @@ if __name__ == '__main__':
         if not os.path.exists("backups"):
             os.mkdir("backups")
 
-        task_numbers = [2, 5, 6, 7, 8, 11, 12, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25]
+        task_numbers = [2, 5, 6, 7, 8, 11, 12, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27]
 
         for i in task_numbers:
             f = open(f"z{i}.py", "wt")
@@ -437,7 +437,7 @@ if __name__ == '__main__':
         os.remove("answers.txt")
         os.remove("notes.txt")
 
-        task_numbers = [2, 5, 6, 7, 8, 11, 12, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25]
+        task_numbers = [2, 5, 6, 7, 8, 11, 12, 14, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27]
 
         for i in task_numbers:
             os.remove(f"z{i}.py")
