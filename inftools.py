@@ -414,7 +414,7 @@ if __name__ == '__main__':
 
         for i in task_numbers:
             f = open(f"z{i}.py", "wt")
-            f.write(f"#\n# Task {i}\n#\n")
+            f.write(f"#\n# Task {i}\n#\n\nfrom inftools import *\n\n\n")
             f.close()
 
     elif args.action in ("pattern",):
