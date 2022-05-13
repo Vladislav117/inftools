@@ -254,6 +254,37 @@ class Numbers:
         return sum(abc) / len(abc)
 
 
+class MultiMath:
+    @classmethod
+    def summarize(cls, *abc):
+        return sum(list(abc))
+
+    @classmethod
+    def subtract(cls, a, *abc):
+        return a - sum(list(abc))
+
+    @classmethod
+    def multiply(cls, *abc):
+        result = 1
+        for value in abc:
+            result *= value
+        return result
+
+    @classmethod
+    def divide(cls, a, *abc):
+        result = a
+        for value in abc:
+            result /= value
+        return result
+
+    @classmethod
+    def power(cls, a, *abc):
+        result = a
+        for value in abc:
+            a = a ** value
+        return result
+
+
 class ClockTimer:
     def __init__(self, name="Unnamed timer"):
         self._start = time.time()
