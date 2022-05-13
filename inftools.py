@@ -414,7 +414,10 @@ if __name__ == '__main__':
 
         for i in task_numbers:
             f = open(f"z{i}.py", "wt")
-            f.write(f"#\n# Task {i}\n#\n\nfrom inftools import *\n\n\n")
+            f.write(f"#\n# Task {i}\n#\n\nfrom inftools import *\n\n"
+                    f"PROGRAM_TIMER = ClockTimer(name='Program time')\n\n# --- Main code ---"
+                    f"\n\n#\n\n# " + "-" * 17 +
+                    f"\n\nprint('-' * 16)\nprint('Program has been finished.')\nPROGRAM_TIMER.show()\n")
             f.close()
 
     elif args.action in ("pattern",):
